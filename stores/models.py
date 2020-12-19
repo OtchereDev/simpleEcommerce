@@ -41,7 +41,7 @@ class Order(models.Model):
     @property
     def shipping(self):
         shipping=False
-        orderItems=self.orderitems_set.all()
+        orderItems=self.orderitem_set.all()
         for i in orderItems:
             if i.product.digital==False:
                 shipping=True
