@@ -11,6 +11,7 @@ updateBtns.forEach(btn => {
             console.log('user is not logged in')
         } else {
             updateUserOrder(productId, action)
+
         }
 
     })
@@ -20,13 +21,20 @@ updateBtns.forEach(btn => {
 function updateUserOrder(productId, action) {
     console.log('User is logged in, sending data...')
 
-    const url = '/update_items/'
+    const url = '/update_item/'
 
     fetch(url, {
-        method = 'POST',
-        headers = {
-            'Content-Type': 'application/json'
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
         },
         body: JSON.stringify({ 'productId': productId, 'action': action })
+
+    }).then((response) => {
+        return response.json
+    }).then((data) => {
+        console.log('data', data)
+        location.reload()
     })
 }
