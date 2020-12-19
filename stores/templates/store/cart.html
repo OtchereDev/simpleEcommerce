@@ -1,0 +1,47 @@
+{% extends 'store/main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box-element">
+         <a class='btn btn-outline-dark' href="{% url 'stores:store' %}"> &#8592; Contine Shopping</a>
+        </div>
+        <br>
+        <br>
+        <table class="table">
+        <tr>
+        <th><h5>Items: <strong> 3</strong></h5></th>
+        <th><h5>Total: <strong> $380</strong></h5></th>
+        <th>
+        <a href="{% url 'stores:checkout' %}" style='float:right;margin:5px' class="btn btn-success">
+        checkout
+        </a>
+        </th>
+        </tr>
+        </table>
+        <div class="box-element">
+        <div class="cart-row">
+            <div style='flex:2' class=""></div>
+            <div style='flex:2' class=""><strong>Item</strong></div>
+            <div style='flex:2' class=""><strong>Price</strong></div>
+            <div style='flex:2' class=""><strong>Quantity</strong></div>
+            <div style='flex:1' class=""><strong>Total</strong></div>
+        </div>
+        <div class="cart-row">
+            <div style='flex:2' class=""><img class='row-image' src="{%static 'images/placeholder.png'%}" alt=""></div>
+            <div style='flex:2' class="">Product 1</div>
+            <div style='flex:2' class="">$20</div>
+            <div style='flex:2' class="">
+                <p class="quantity">2</p>
+                <div class="quantity">
+                <img src="{% static 'images/arrow-up.png'%}" alt="" class="chg-quantity">
+                <img src="{% static 'images/arrow-down.png'%}" alt="" class="chg-quantity">
+                </div>
+            </div>
+            <div style='flex:1' class="">$30</div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} 
